@@ -8,7 +8,7 @@ const socketToRoom= new Map();
 const emailTosocket = new Map();
 
 io.on('connection', (socket)=>{
-    console.log("We're connected ", socket.id);
+    // console.log("We're connected ", socket.id);
 
     socket.on("room:join", (data)=>roomJoin(data,socket));
 
@@ -24,7 +24,7 @@ io.on('connection', (socket)=>{
 
 const roomJoin = (data,socket)=>{
     const {roomId,email} = data;
-   console.log("room",email)
+//    console.log("room",email)
 
     socketToemail.set(socket.id, data.email);
     emailTosocket.set(data.email,socket.id);
@@ -39,7 +39,7 @@ const roomJoin = (data,socket)=>{
 
 const sendMessage= (data,socket)=>{
         let {roomId,message} = data;
-        console.log(message);
+        // console.log(message);
         // message = `${socketToemail.get(socket.id)} : ${message}`;
 
         io.to(roomId).except(socket.id).emit("message:receive", 
