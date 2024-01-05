@@ -38,7 +38,7 @@ const RoomPage = () => {
   };
 
   const handleSendMessage = (ev) => {
-    console.log(text, "sending");
+    // console.log(text, "sending");
 
     socket.emit("message:send", { message: text, roomId });
     setText((text)=>"");
@@ -61,7 +61,7 @@ const RoomPage = () => {
  
 
   const handleKeyUP = (event)=>{
-    console.log(event.keyCode);
+    // console.log(event.keyCode);
     if(event.keyCode === 13){
       handleSendMessage();
       setText("");
@@ -69,6 +69,10 @@ const RoomPage = () => {
     }
     
   }
+  const handleLogOut = ()=>{
+    auth.signOut();
+  }
+
   useEffect(() => {
     socket.on("user:left", handleUserLeft);
     socket.on("user:joined", handleUserJoined);
@@ -92,6 +96,9 @@ const RoomPage = () => {
           <div className="bar">
             <img src={logo} alt="" />
             <div style={{margin:"auto 3px"}}>Tinkler Chat room</div>
+            {/* <div>
+            <button className="logout-chatroom" onClick={handleLogOut}>Logout</button>
+            </div> */}
           </div>
           {/* <ScrollToBottom> */}
           <div className="chatbox">

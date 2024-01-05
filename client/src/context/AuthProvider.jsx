@@ -5,7 +5,7 @@ import { auth } from '../components/firebase';
 
 const authContext = createContext();
 
-const useAuth = ()=>{
+export const useAuth = ()=>{
     return useContext(authContext);
 }
 const AuthProvider = ({children}) => {
@@ -17,9 +17,10 @@ const AuthProvider = ({children}) => {
         auth.onAuthStateChanged((user)=> {
             setUser(user);
             setLoading(false);
-            console.log(user);
+            // console.log(user);
 
-            if(user !=null) navigate('/chats');
+            if(user ==null) navigate('/');
+            
         })
     },[user,navigate]);
   return (

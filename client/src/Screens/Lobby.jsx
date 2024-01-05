@@ -4,24 +4,34 @@ import { useSocket } from "../context/socketProvider";
 import { useNavigate } from "react-router-dom";
 
 import '../css/lobby.css';
+import {useAuth} from "../context/AuthProvider";
+import { auth } from "../components/firebase";
 
 const Lobby = () => {
-  const [email, setEmail] = useState("");
+  // const [email, setEmail] = useState("");
   const [roomId, setRoomId] = useState("");
   const socket = useSocket();
   const navigate = useNavigate();
+  const user = useAuth();
+
   const handleSubmit = useCallback(
     (e) => {
+      // console.log("lobby",user);
+      // console.log(user.email)
       e.preventDefault();
-      socket.emit("room:join", { email, roomId });
+      socket.emit("room:join", { email:user.email, roomId });
     },
-    [email, roomId, socket]
+    [ roomId, socket,user]
   );
 
   const handleRoomJoin = useCallback((data) => {
     console.log(data, "join request aproved");
     navigate(`/room/${roomId}`);
   });
+
+  const handleLogOut = ()=>{
+    auth.signOut();
+  }
 
   useEffect(() => {
     socket.on("room:join", handleRoomJoin);
@@ -34,8 +44,8 @@ const Lobby = () => {
     <div id = 'lobby'>
 
       <form action="" className="form_main" onSubmit={handleSubmit}>
-        <p className="heading">Login</p>
-        <div className="inputContainer">
+        <p className="heading" style={{fontSize: '1.2em'}}>{user.email}</p>
+        {/* <div className="inputContainer">
          
           <input
             className="inputField"
@@ -45,7 +55,7 @@ const Lobby = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-        </div>
+        </div> */}
         <div className="inputContainer">
           
           
@@ -57,9 +67,12 @@ const Lobby = () => {
             placeholder="enter roomid"
             value={roomId}
             onChange={(e) => setRoomId(e.target.value)}
+            required={true}
           />
         </div>
+        
         <button id="button">join</button>
+        <button className="logout" onClick={handleLogOut}>Logout</button>
       </form>
     </div>
   );
