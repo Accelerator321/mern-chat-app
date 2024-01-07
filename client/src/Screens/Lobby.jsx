@@ -6,10 +6,12 @@ import { useNavigate } from "react-router-dom";
 import '../css/lobby.css';
 import {useAuth} from "../context/AuthProvider";
 import { auth } from "../components/firebase";
+import Loader from "../components/Loader";
 
 const Lobby = () => {
   // const [email, setEmail] = useState("");
   const [roomId, setRoomId] = useState("");
+  const [loading, setLoading] = useState(false);
   const socket = useSocket();
   const navigate = useNavigate();
   const user = useAuth();
@@ -20,6 +22,7 @@ const Lobby = () => {
       // console.log(user.email)
       e.preventDefault();
       socket.emit("room:join", { email:user.email, roomId });
+      setLoading(true);
     },
     [ roomId, socket,user]
   );
@@ -40,8 +43,15 @@ const Lobby = () => {
       socket.off("room:join", handleRoomJoin);
     };
   }, [socket, handleRoomJoin]);
+
+  if(true) return (
+    
+    <Loader />
+    
+  )
   return (
     <div id = 'lobby'>
+       {/* <Loader /> */}
 
       <form action="" className="form_main" onSubmit={handleSubmit}>
         <p className="heading" style={{fontSize: '1.2em'}}>{user.email}</p>

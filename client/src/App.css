@@ -232,3 +232,10 @@ body {
     font-size: 1.2em;
     
   }
+
+  .loader{
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
