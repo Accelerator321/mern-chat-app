@@ -1,9 +1,7 @@
 const {Server} = require('socket.io');
 
 const io = new Server(80,{
-    cors: {
-        origin: '*',
-      }
+    cors:true
 
 });
 const socketToemail = new Map();
