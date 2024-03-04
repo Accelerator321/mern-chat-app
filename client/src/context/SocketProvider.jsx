@@ -11,7 +11,7 @@ const SocketProvider = (props) => {
     
     // const socket = useMemo(()=>io('localhost'),[] );
     // const socket = useMemo(()=>io('https://chat-app-backend-dh0t.onrender.com'),[] );
-    const socket = useMemo(()=>io('https://mern-chat-app-pied.vercel.app/'),[] );
+    const socket = useMemo(()=>io('https://mern-chat-app-pied.vercel.app'),[] );
 
 
 
