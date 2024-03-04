@@ -2,7 +2,7 @@ const {Server} = require('socket.io');
 
 const io = new Server(80,{
     cors: {
-        origin: '*',
+        origin: 'https://accelerator321.github.io/mern-chat-app/',
       }
 
 });
