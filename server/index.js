@@ -3,6 +3,8 @@ const {Server} = require('socket.io');
 const io = new Server(80,{
     cors: {
         origin: 'https://accelerator321.github.io',
+        methods: ["GET", "POST"]
+
       }
 
 });
