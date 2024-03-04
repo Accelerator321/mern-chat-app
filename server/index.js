@@ -1,7 +1,10 @@
 const {Server} = require('socket.io');
 
 const io = new Server(80,{
-    cors:true
+    cors: {
+        origin: '*',
+      }
+
 });
 const socketToemail = new Map();
 const socketToRoom= new Map();
