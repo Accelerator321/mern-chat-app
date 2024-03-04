@@ -1,7 +1,9 @@
 const {Server} = require('socket.io');
 
 const io = new Server(80,{
-    cors: true
+    cors: {
+        origin: 'https://accelerator321.github.io',
+      }
 
 });
 const socketToemail = new Map();
