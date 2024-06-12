@@ -1,0 +1,241 @@
+/* *{
+    
+} */
+
+.container {
+    box-shadow: -5px 0px 18px #000, -4px 0px 9px #b4e152;
+    
+    border: 2px solid black;
+
+    align-items: center;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+@media (max-width:720px) {
+    .chatroom {
+        width: 100vw;
+        height: 100% !important;
+        margin: 0px;
+        padding: 0px;
+    }
+    .chatbox{
+        height: 62vh;
+        margin: 0px;
+    }
+    .form{
+        width: 90% !important;
+        left: 1em !important;
+    }
+    
+
+}
+
+@media (max-width:400px) {
+    .chatroom {
+        width: 90vw !important;
+        /* height: 95vh; */
+        margin: 0px;
+        padding: 0px;
+    }
+    .message {
+        padding: 1rem 1rem !important;
+        margin-left: 4px !important;
+    }
+
+    .right {
+        margin-right: 4px !important;
+    }
+}
+
+.textarea {
+    font-size: 0.9rem;
+    font-weight: bold;
+    padding: 2px 11px;
+    max-height: 2rem;
+
+    width: 70%;
+    /* height: 34px; */
+    border: 2px solid red;
+    border-radius: 14px 14px 14px 14px;
+}
+
+.right {
+    
+    align-self: flex-end;
+    
+}
+
+.message-right{
+box-shadow: 10px 8px 5px #1a2437 !important;
+    border-radius: 20px 20px 0px 20px !important;
+    background-color: #d5c3e6 !important;
+}
+
+button {
+    font-size: 2rem;
+    margin-left: 4px;
+    margin-bottom: 5px;
+    /* position: relative;
+    bottom: 9px; */
+    border-radius: 32%;
+}
+
+.chatbox {
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    
+    overflow-y: scroll;
+    width: 100%;
+
+}
+
+.message {
+    box-shadow: -3px 8px 5px #1a2437;
+    border-radius: 0px 20px 20px 20px;
+    background-color: cadetblue;
+    width: fit-content;
+    word-wrap: anywhere;
+    padding: 1rem 2rem;
+    word-break: break-word;
+}
+
+.notification {
+    background: #1a1816;
+    color: #5bc13f;
+    margin: 1.3rem;
+    align-self: center;
+    height: fit-content;
+    padding: 6px 31px;
+    border-radius: 40%;
+   
+}
+
+body {
+    background: url('./assets/bg.jpg') center center/cover no-repeat;
+    height: 90vh;
+    
+}
+
+.chatroom {
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    margin: auto;
+    width: 60vw;
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1em;
+
+}
+
+.chatroom img {
+    margin: 5px;
+    max-width: 89px;
+    max-height: 68px;
+    border-radius: 50%;
+}
+
+/* .chatroom div {
+    align-self: center;
+} */
+
+.form {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    /* bottom: 0px; */
+    width: 45vw;
+    left: 29%;
+    bottom: 2%;
+
+}
+
+.bar{
+    display: flex;
+    flex-direction: row;
+    /* border: 2px solid #5571ff; */
+    /* border-radius: 39px; */
+    background: #08080c;
+}
+
+.red{
+    color: red !important;
+}
+
+.sender-info{
+    color: #ebb000;
+}
+
+.message-box{
+    margin: 1.5rem 2rem;
+}
+
+.chat-body{
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* login page */
+#login-page {
+    background-image: linear-gradient(#40a9ff, #096dd9);
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+  }
+  
+  #login-card {
+    position: relative;
+    top: calc(50vh - 144px);
+    left: calc(50vw - 210px);
+    padding-top: 36px;
+    padding-bottom: 66px;
+    width: 420px;
+    text-align: center;
+    background-color: white;
+    border-radius: 22px;
+  }
+  
+  .login-button {
+    cursor: pointer;
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    display: inline-block;
+  }
+  
+  .facebook {
+    background-color: #3b5998;
+  }
+  
+  .google {
+    background-color: #4285f4;
+    color: white;
+  }
+  
+  .logout{
+    color: red;
+    font-size: 1.2em;
+    margin:2em;
+  }
+
+  .logout-chatroom{
+    align-self: flex-end;
+    color: red;
+    font-size: 1.2em;
+    
+  }
+
+  .loader{
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
